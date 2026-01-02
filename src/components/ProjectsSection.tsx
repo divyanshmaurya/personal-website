@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, Brain, ChartLineUp, Users } from '@phosphor-icons/react';
+import { ArrowUpRight, Brain, Users } from '@phosphor-icons/react';
 import project1 from '@/assets/project-1.png';
 import project2 from '@/assets/project-2.png';
-import project3 from '@/assets/project-3.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,13 +21,6 @@ const projects = [
     image: project2,
     tags: ['AI', 'Simulation', 'HR Analytics', 'Machine Learning'],
     icon: Users,
-  },
-  {
-    title: 'Customer Churn Prediction',
-    description: 'Neural network model predicting customer churn risk by analyzing historical behavior patterns.',
-    image: project3,
-    tags: ['Neural Networks', 'TensorFlow', 'Data Analysis', 'Python'],
-    icon: ChartLineUp,
   },
 ];
 
