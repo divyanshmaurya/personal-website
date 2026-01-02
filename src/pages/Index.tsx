@@ -5,8 +5,10 @@ import Preloader from '@/components/Preloader';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import EducationSection from '@/components/EducationSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import WorkExperienceSection from '@/components/WorkExperienceSection';
+import AchievementsSection from '@/components/AchievementsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -50,8 +52,10 @@ const Index = () => {
         <main>
           <HeroSection />
           <AboutSection />
+          <EducationSection />
           <ProjectsSection />
           <WorkExperienceSection />
+          <AchievementsSection />
           <ContactSection />
         </main>
         <Footer />
