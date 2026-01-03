@@ -14,6 +14,7 @@ const projects = [
     image: project1,
     tags: ['EEG', 'Deep Learning', 'Signal Processing', 'Python'],
     icon: Brain,
+    link: null,
   },
   {
     title: 'AI Workforce Digital Twin',
@@ -21,6 +22,7 @@ const projects = [
     image: project2,
     tags: ['AI', 'Simulation', 'HR Analytics', 'Machine Learning'],
     icon: Users,
+    link: 'https://attritionsimulation1.streamlit.app/',
   },
 ];
 
@@ -95,9 +97,16 @@ const ProjectsSection = () => {
 
         {/* Bento Grid */}
         <div ref={cardsContainerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <div
+          {projects.map((project, index) => {
+            const CardWrapper = project.link ? 'a' : 'div';
+            const cardProps = project.link
+              ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' }
+              : {};
+            
+            return (
+            <CardWrapper
               key={project.title}
+              {...cardProps}
               className={`project-card-wrapper ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               <div className="project-card h-full flex flex-col group cursor-pointer">
@@ -142,8 +151,9 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>
