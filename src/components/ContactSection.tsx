@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { GithubLogo, LinkedinLogo, EnvelopeSimple, PaperPlaneTilt } from '@phosphor-icons/react';
+import { GithubLogo, LinkedinLogo, EnvelopeSimple, PaperPlaneTilt, MapPin, GraduationCap } from '@phosphor-icons/react';
 import { toast } from '@/hooks/use-toast';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,19 +54,19 @@ const ContactSection = () => {
       }
     );
 
-    // Social icons animation
+    // Contact info animation
     gsap.fromTo(
-      '.social-icon',
-      { opacity: 0, scale: 0 },
+      '.contact-info-item',
+      { opacity: 0, x: 50 },
       {
         opacity: 1,
-        scale: 1,
-        duration: 0.5,
+        x: 0,
+        duration: 0.6,
         stagger: 0.1,
-        ease: 'back.out(1.7)',
+        ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.social-icons',
-          start: 'top 85%',
+          trigger: '.contact-info',
+          start: 'top 75%',
           toggleActions: 'play none none reverse',
         },
       }
@@ -118,94 +118,142 @@ const ContactSection = () => {
       <div className="glow-orb w-60 h-60 bottom-10 right-10 opacity-20" style={{ background: 'radial-gradient(circle, hsl(262 83% 58%) 0%, transparent 70%)' }} />
 
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="contact-title section-title mb-6">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="contact-title text-muted-foreground text-lg mb-12">
-            Have a project in mind or want to collaborate? I'd love to hear from you.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="contact-title section-title mb-6">
+              Let's <span className="gradient-text">Connect</span>
+            </h2>
+            <p className="contact-title text-muted-foreground text-lg">
+              Have a project in mind or want to collaborate? I'd love to hear from you.
+            </p>
+          </div>
 
-          {/* Contact Form */}
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-            <div className="form-element">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all"
-              />
-            </div>
-            <div className="form-element">
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                required
-                className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all"
-              />
-            </div>
-            <div className="form-element">
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                rows={5}
-                required
-                className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all resize-none"
-              />
-            </div>
-            <div className="form-element">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-neon w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="contact-info space-y-6">
+              <h3 className="contact-info-item text-2xl font-bold text-foreground mb-8">
+                Contact Information
+              </h3>
+              
+              <a
+                href="mailto:dm6602@nyu.edu"
+                className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4 hover:scale-[1.02] transition-transform group"
               >
-                {isSubmitting ? (
-                  <>
-                    <span className="animate-spin">⏳</span>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <PaperPlaneTilt size={20} weight="bold" />
-                    Send Message
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                  <EnvelopeSimple size={24} weight="light" className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="text-foreground font-medium">dm6602@nyu.edu</p>
+                </div>
+              </a>
 
-          {/* Social Links */}
-          <div className="social-icons flex items-center justify-center gap-6 mt-12">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon skill-icon"
-            >
-              <GithubLogo size={24} weight="light" className="text-foreground hover:text-primary transition-colors" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon skill-icon"
-            >
-              <LinkedinLogo size={24} weight="light" className="text-foreground hover:text-primary transition-colors" />
-            </a>
-            <a
-              href="mailto:divyansh@nyu.edu"
-              className="social-icon skill-icon"
-            >
-              <EnvelopeSimple size={24} weight="light" className="text-foreground hover:text-primary transition-colors" />
-            </a>
+              <a
+                href="https://www.linkedin.com/in/divyansh-maurya/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4 hover:scale-[1.02] transition-transform group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                  <LinkedinLogo size={24} weight="light" className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">LinkedIn</p>
+                  <p className="text-foreground font-medium">divyansh-maurya</p>
+                </div>
+              </a>
+
+              <div className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <MapPin size={24} weight="light" className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="text-foreground font-medium">New York City</p>
+                </div>
+              </div>
+
+              <div className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <GraduationCap size={24} weight="light" className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">University</p>
+                  <p className="text-foreground font-medium">New York University</p>
+                </div>
+              </div>
+
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4 hover:scale-[1.02] transition-transform group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                  <GithubLogo size={24} weight="light" className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">GitHub</p>
+                  <p className="text-foreground font-medium">View Profile</p>
+                </div>
+              </a>
+            </div>
+
+            {/* Contact Form */}
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <div className="form-element">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all"
+                />
+              </div>
+              <div className="form-element">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  required
+                  className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all"
+                />
+              </div>
+              <div className="form-element">
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message"
+                  rows={5}
+                  required
+                  className="w-full px-6 py-4 rounded-xl bg-muted/30 border border-border/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 input-glow transition-all resize-none"
+                />
+              </div>
+              <div className="form-element">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-neon w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-spin">⏳</span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <PaperPlaneTilt size={20} weight="bold" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
