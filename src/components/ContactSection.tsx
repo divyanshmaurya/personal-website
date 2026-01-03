@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { GithubLogo, LinkedinLogo, EnvelopeSimple, PaperPlaneTilt, MapPin, GraduationCap } from '@phosphor-icons/react';
+import { LinkedinLogo, EnvelopeSimple, PaperPlaneTilt, MapPin } from '@phosphor-icons/react';
 import { toast } from '@/hooks/use-toast';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -172,31 +172,6 @@ const ContactSection = () => {
                   <p className="text-foreground font-medium">New York City</p>
                 </div>
               </div>
-
-              <div className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                  <GraduationCap size={24} weight="light" className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">University</p>
-                  <p className="text-foreground font-medium">New York University</p>
-                </div>
-              </div>
-
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-info-item glass-card p-4 rounded-xl flex items-center gap-4 hover:scale-[1.02] transition-transform group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <GithubLogo size={24} weight="light" className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">GitHub</p>
-                  <p className="text-foreground font-medium">View Profile</p>
-                </div>
-              </a>
             </div>
 
             {/* Contact Form */}
