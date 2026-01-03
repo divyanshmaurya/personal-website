@@ -115,7 +115,7 @@ const HeroSection = () => {
           onClick={handleHireClick}
           className="btn-neon inline-block animate-pulse-glow"
         >
-          Hire Me
+          Get In Touch
         </a>
       </div>
 

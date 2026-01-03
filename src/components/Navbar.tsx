@@ -5,6 +5,7 @@ import { List, X } from '@phosphor-icons/react';
 const navLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -81,13 +82,6 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
-              className="btn-neon text-xs"
-            >
-              Hire Me
-            </a>
           </div>
 
           {/* Mobile Toggle */}
@@ -119,13 +113,6 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className="btn-neon mt-4"
-          >
-            Hire Me
-          </a>
         </div>
       )}
     </>
