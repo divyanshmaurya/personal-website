@@ -12,11 +12,6 @@ const achievements = [
     description: "Officially founded the Technopreneur Development Program for the Department of Computer Applications, National Institute of Technology, Tiruchirappalli (Nov. 2024) to foster entrepreneurial skills among students."
   },
   {
-    icon: Award,
-    title: "Bitrex 2017 Chairman",
-    description: "Bitrex was Annual Technical Fest of Institute of Science BHU which was initiated by me with a group of students of Department of Computer Science, Institute of Science, Banaras Hindu University."
-  },
-  {
     icon: Trophy,
     title: "Pragyan Hackathon Finalist",
     description: "Finalist at Sangam Hackathon in Pragyan'20 and Pragyan'21 (ISO-certified Annual International Techno-Managerial Festival of NIT Trichy) under the Healthcare using AI sub-theme."
@@ -40,6 +35,11 @@ const achievements = [
     icon: Target,
     title: "All India Rank 76 - NIMCET 2019",
     description: "Secured All India Rank 76 in NIMCET 2019 (NIT MCA Common Entrance Test)."
+  },
+  {
+    icon: Award,
+    title: "Bitrex 2017 Chairman",
+    description: "Bitrex was Annual Technical Fest of Institute of Science BHU which was initiated by me with a group of students of Department of Computer Science, Institute of Science, Banaras Hindu University."
   },
   {
     icon: Medal,
