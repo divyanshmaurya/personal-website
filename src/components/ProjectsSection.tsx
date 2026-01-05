@@ -96,7 +96,7 @@ const ProjectsSection = () => {
         </h2>
 
         {/* Bento Grid */}
-        <div ref={cardsContainerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div ref={cardsContainerRef} className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {projects.map((project, index) => {
             const CardWrapper = project.link ? 'a' : 'div';
             const cardProps = project.link
@@ -107,7 +107,7 @@ const ProjectsSection = () => {
             <CardWrapper
               key={project.title}
               {...cardProps}
-              className={`project-card-wrapper ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              className="project-card-wrapper"
             >
               <div className="project-card h-full flex flex-col group cursor-pointer">
                 {/* Image */}
