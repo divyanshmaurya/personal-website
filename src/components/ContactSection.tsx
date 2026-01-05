@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LinkedinLogo, EnvelopeSimple, PaperPlaneTilt, MapPin } from '@phosphor-icons/react';
 import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,26 +82,39 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
 
-    toast({
-      title: "Message sent! ✨",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
+      if (error) throw error;
 
-    // Button animation
-    const button = formRef.current?.querySelector('button[type="submit"]');
-    if (button) {
-      gsap.fromTo(
-        button,
-        { scale: 1 },
-        { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1, ease: 'power2.inOut' }
-      );
+      toast({
+        title: "Message sent! ✨",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+
+      // Button animation
+      const button = formRef.current?.querySelector('button[type="submit"]');
+      if (button) {
+        gsap.fromTo(
+          button,
+          { scale: 1 },
+          { scale: 1.1, duration: 0.2, yoyo: true, repeat: 1, ease: 'power2.inOut' }
+        );
+      }
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
