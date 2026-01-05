@@ -6,56 +6,56 @@
 
 @layer base {
   :root {
-    /* Deep space navy background */
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
+    /* Clean light background */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
-    /* Card with glassmorphism */
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    /* Card with subtle depth */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary - Cyan neon */
-    --primary: 187 100% 45%;
-    --primary-foreground: 222 47% 5%;
+    /* Primary - Deep teal */
+    --primary: 187 80% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Electric blue */
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary - Rich blue */
+    --secondary: 217 91% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 30% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 40% 93%;
+    --muted-foreground: 215 20% 40%;
 
-    /* Accent - Violet glow */
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
+    /* Accent - Deep violet */
+    --accent: 262 83% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 222 30% 20%;
-    --input: 222 30% 15%;
-    --ring: 187 100% 45%;
+    --border: 214 32% 85%;
+    --input: 214 32% 90%;
+    --ring: 187 80% 35%;
 
     --radius: 1rem;
 
-    /* Custom design tokens */
-    --glow-primary: 0 0 30px hsl(187 100% 45% / 0.5);
-    --glow-secondary: 0 0 30px hsl(217 91% 60% / 0.5);
-    --glow-accent: 0 0 30px hsl(262 83% 58% / 0.5);
-    --glass-bg: hsl(222 47% 8% / 0.6);
-    --glass-border: hsl(222 30% 25% / 0.5);
+    /* Custom design tokens for light theme */
+    --glow-primary: 0 8px 30px hsl(187 80% 35% / 0.15);
+    --glow-secondary: 0 8px 30px hsl(217 91% 50% / 0.15);
+    --glow-accent: 0 8px 30px hsl(262 83% 50% / 0.15);
+    --glass-bg: hsl(0 0% 100% / 0.8);
+    --glass-border: hsl(214 32% 85% / 0.8);
 
-    --sidebar-background: 222 47% 5%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 187 100% 45%;
-    --sidebar-primary-foreground: 222 47% 5%;
-    --sidebar-accent: 217 91% 60%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 30% 20%;
-    --sidebar-ring: 187 100% 45%;
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 187 80% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 214 32% 85%;
+    --sidebar-ring: 187 80% 35%;
   }
 
   .dark {
@@ -109,6 +109,7 @@
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(20px);
+    box-shadow: 0 4px 24px hsl(222 47% 11% / 0.06);
   }
 
   .glass-card::before {
@@ -117,14 +118,14 @@
     inset: 0;
     background: linear-gradient(
       135deg,
-      hsl(187 100% 45% / 0.1) 0%,
+      hsl(187 80% 35% / 0.05) 0%,
       transparent 50%,
-      hsl(262 83% 58% / 0.05) 100%
+      hsl(262 83% 50% / 0.03) 100%
     );
     pointer-events: none;
   }
 
-  /* Neon glow button */
+  /* Professional button */
   .btn-neon {
     @apply relative px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-wider;
     @apply bg-primary text-primary-foreground;
@@ -134,7 +135,7 @@
 
   .btn-neon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 50px hsl(187 100% 45% / 0.7), 0 0 80px hsl(187 100% 45% / 0.4);
+    box-shadow: 0 12px 40px hsl(187 80% 35% / 0.3);
   }
 
   .btn-neon::before {
@@ -142,7 +143,7 @@
     position: absolute;
     inset: -2px;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(187 100% 45%), hsl(217 91% 60%), hsl(262 83% 58%));
+    background: linear-gradient(135deg, hsl(187 80% 35%), hsl(217 91% 50%), hsl(262 83% 50%));
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s;
@@ -152,25 +153,26 @@
     opacity: 1;
   }
 
-  /* Glowing text */
+  /* Subtle text emphasis */
   .text-glow {
-    text-shadow: 0 0 20px hsl(187 100% 45% / 0.5);
+    color: hsl(187 80% 30%);
   }
 
   .text-glow-strong {
-    text-shadow: 0 0 30px hsl(187 100% 45% / 0.8), 0 0 60px hsl(187 100% 45% / 0.4);
+    color: hsl(187 80% 25%);
+    font-weight: 600;
   }
 
   /* Gradient text */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(187 100% 45%), hsl(217 91% 60%), hsl(262 83% 58%));
+    background-image: linear-gradient(135deg, hsl(187 80% 35%), hsl(217 91% 50%), hsl(262 83% 50%));
   }
 
-  /* Floating orb */
+  /* Floating orb - subtle for light theme */
   .glow-orb {
-    @apply absolute rounded-full blur-3xl opacity-30;
-    background: radial-gradient(circle, hsl(187 100% 45%) 0%, transparent 70%);
+    @apply absolute rounded-full blur-3xl opacity-10;
+    background: radial-gradient(circle, hsl(187 80% 50%) 0%, transparent 70%);
   }
 
   /* Section title */
@@ -227,7 +229,7 @@
 
   .project-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px hsl(187 100% 45% / 0.15);
+    box-shadow: 0 20px 60px hsl(222 47% 11% / 0.1);
   }
 
   /* Preloader */
@@ -243,20 +245,20 @@
 
   .progress-bar {
     @apply h-full rounded-full;
-    background: linear-gradient(90deg, hsl(187 100% 45%), hsl(217 91% 60%), hsl(262 83% 58%));
+    background: linear-gradient(90deg, hsl(187 80% 35%), hsl(217 91% 50%), hsl(262 83% 50%));
     width: 0%;
   }
 
   /* Floating particles */
   .particle {
     @apply absolute rounded-full;
-    background: hsl(187 100% 45%);
+    background: hsl(187 80% 35%);
     animation: float 6s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-    50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-20px) scale(1.1); opacity: 0.7; }
   }
 
   /* Nav link */
@@ -317,6 +319,6 @@
 
   @keyframes pulse-glow {
     0%, 100% { box-shadow: var(--glow-primary); }
-    50% { box-shadow: 0 0 50px hsl(187 100% 45% / 0.8), 0 0 80px hsl(187 100% 45% / 0.4); }
+    50% { box-shadow: 0 16px 50px hsl(187 80% 35% / 0.25); }
   }
 }
